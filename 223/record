@@ -41,3 +41,6 @@ def func(s):
         result += s[max_index-index]
     return result
 result = func(s)
+
+类型在pandas中转换
+https://www.cnblogs.com/onemorepoint/p/9404753.html
