@@ -9,14 +9,35 @@ map函数仅仅是创建一个待运行的命令容器，只有其他函数调�
 ·重复数据及含有特殊符号（如#、￥、*）的数据
 从总体上来说，缺失值的处理分为删除存在缺失值的记录、对可能值进行插补和不处理3种情况
 
-pandas在编辑器默认显示不全解决办法
-import pandas as pd ,numpy as np
-# 设置显示的最大列、宽等参数，消掉打印不完全中间的省略号
-# pd.set_option('display.max_columns', 1000)
-# pd.set_option('display.max_colwidth', 1000)
-# pd.set_option('display.height', 1000)
-pd.set_option('display.width', 1000)#加了这一行那表格的一行就不会分段出现了
-#显示所有列
-pd.set_option('display.max_columns', None)
-#显示所有行
-pd.set_option('display.max_rows', None)
+python字符串反转
+https://www.cnblogs.com/taceywong/p/8045127.html
+第一种：使用字符串切片
+result = s[::-1]
+第二种：使用列表的reverse方法
+l = list(s)
+l.reverse()
+result = "".join(l)
+第三种：使用reduce
+result = reduce(lambda x,y:y+x,s)
+第四种：使用递归函数
+def func(s):
+    if len(s) <1:
+        return s
+    return func(s[1:])+s[0]
+result = func(s)
+第五种：使用栈
+def func(s):
+    l = list(s) #模拟全部入栈
+    result = ""
+    while len(l)>0:
+        result += l.pop() #模拟出栈
+    return result
+result = func(s)
+第六种：for循环
+def func(s):
+    result = ""
+    max_index = len(s)-1
+    for index,value in enumerate(s):
+        result += s[max_index-index]
+    return result
+result = func(s)
