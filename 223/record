@@ -44,3 +44,6 @@ result = func(s)
 
 类型在pandas中转换
 https://www.cnblogs.com/onemorepoint/p/9404753.html
+
+在pandas中取消科学计数法打印
+pd.set_option('display.float_format', lambda x: '%.f' % x)
