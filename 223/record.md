@@ -1,13 +1,13 @@
-编码设置
-UnicodeEncodeError:'gbk' codec can't encode character '\xa9' in position 0:illegal multibyte sequence
- 问题：
-python的print()方法的问题。在python中， print()方法在Win7的默认编码是gbk，它在打印时，并不是所有的字符都支持的。 而且这个问题一般也就是在cmd中才会有。 在cmd中是改变标准输出编码：
- 修改准输出编码
+# 编码设置  
+UnicodeEncodeError:'gbk' codec can't encode character '\xa9' in position 0:illegal multibyte sequence  
+问题：python的print()方法的问题。在python中， print()方法在Win7的默认编码是gbk，它在打印时，并不是所有的字符都支持的。 而且这个问题一般也就是在cmd中才会有。 在cmd中是改变标准输出编码： 修改准输出编码  
+```
 import io  
 import sys 
 #改变标准输出的默认编码 
 #utf-8中文乱码
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='gb18030') 
+```
 
 
 字符串格式化显示
