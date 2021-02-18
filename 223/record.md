@@ -63,3 +63,21 @@ map函数仅仅是创建一个待运行的命令容器，只有其他函数调�
 ·不一致的值。  
 ·重复数据及含有特殊符号（如#、￥、*）的数据  
 从总体上来说，缺失值的处理分为删除存在缺失值的记录、对可能值进行插补和不处理3种情况  
+#  time模块 时间格式化  
+```
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+ 
+import time
+ 
+# 格式化成2016-03-20 11:45:39形式
+print time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
+ 
+# 格式化成Sat Mar 28 22:24:24 2016形式
+print time.strftime("%a %b %d %H:%M:%S %Y", time.localtime()) 
+  
+# 将格式字符串转换为时间戳
+a = "Sat Mar 28 22:24:24 2016"
+print time.mktime(time.strptime(a,"%a %b %d %H:%M:%S %Y"))
+```
+
