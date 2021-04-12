@@ -1,7 +1,7 @@
 * 需求分析  
 输入想要计算到小数点后的位数，计算圆周率π的值。  
 * 算法：马青公式  
-[!image](https://github.com/Monkey5030/Python/blob/master/picture/%E8%AE%A1%E7%AE%97%CF%80%E5%85%AC%E5%BC%8F.png?raw=true)  
+![马青公式](https://github.com/Monkey5030/Python/blob/master/picture/%E8%AE%A1%E7%AE%97%CF%80%E5%85%AC%E5%BC%8F.png?raw=true)  
 $\pi=16arctan\frac{1}{5}-4arctan\frac{1}{239}$  
 $arctan x=x-\frac{x^3}{3}+-\frac{x^5}{5}-\frac{x^7}{7}+-\frac{x^9}{9} {\cdots}$  
 $\pi=16\times(\frac{1}{1\times5}-\frac{1}{3\times5^3}+\frac{1}{5\times5^5}-\frac{1}{7\times5^7}+\frac{1}{9\times5^9}{\cdots})-4(\frac{1}{1\times239}-\frac{1}{3\times239^3}+\frac{1}{5\times239^5}-\frac{1}{7\times239^7}+\frac{1}{9\times239^9}{\cdots})$  
