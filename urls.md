@@ -14,3 +14,4 @@
 [faker库的使用1](https://zhuanlan.zhihu.com/p/87203290)  
 [faker库的使用2](https://blog.csdn.net/qq_39431417/article/details/109637657)  
 [iBOok 书籍分享网站](https://home.apachecn.org/)  
+[markdown输入数学公式](https://ericp.cn/cmd)  
