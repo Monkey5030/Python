@@ -17,3 +17,4 @@
 [markdown输入数学公式](https://ericp.cn/cmd)  
 [dive into python](https://diveintopython3.net/index.html)  
 [Python模块](https://vimsky.com/examples/list/python-module-page-1.html)
+[sqlite命令行操作](https://antonz.org/sqlite-is-not-a-toy-database/)
