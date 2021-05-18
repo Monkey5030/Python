@@ -80,4 +80,21 @@ print(time.strftime("%a %b %d %H:%M:%S %Y", time.localtime()))
 a = "Sat Mar 28 22:24:24 2016"
 print(time.mktime(time.strptime(a,"%a %b %d %H:%M:%S %Y")))
 ```
+# pandas.read_csv() 报错 OSError: Initializing from file failed  
+```
+一般由两种情况引起：一种是函数参数为路径而非文件名称，另一种是函数参数带有中文。
 
+方法一：  
+而解决问题的有效办法：直接在后面加入指定编译器为python即可（engine='python')）。否则用utf8还是不行
+df=pd.read_csv('shuju.csv',engine='python')
+考了错误原因和pandas的源码，发现调用pandas的read_csv()方法时，默认使用C engine作为parser engine，
+而当文件名中含有中文的时候，用C engine在部分情况下就会出错。所以在调用read_csv()方法时指定engine为Python就可以解决问题了。
+ 
+
+方法二：  
+对于第二种情况还有另外一种解决方法，就是使用open函数打开文件，再取访问里面的数据：
+df=pd.read_csv(open('shuju.csv'))
+
+方法三：  
+用文本编辑器打开文件转码即可
+```
