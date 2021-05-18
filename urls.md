@@ -15,7 +15,7 @@
 [scientific_python_cheat_sheet](https://ipgp.github.io/scientific_python_cheat_sheet/)  
 [python api](https://overapi.com/python)  
 [Learn X in Y minutes](https://learnxinyminutes.com/docs/python/)  
-[Problem Solving with Algorithms and Data Structures using Python](https://runestone.academy/runestone/books/published/pythonds/index.html) 
+[Problem Solving with Algorithms and Data Structures using Python](https://runestone.academy/runestone/books/published/pythonds/index.html)  
 [pandas vs SQL](https://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html)  
 [10 minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)  
 [A Crash Course in Python for Scientists](https://nbviewer.jupyter.org/gist/anonymous/5924718)  
