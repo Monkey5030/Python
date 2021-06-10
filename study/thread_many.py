@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jun 10 15:34:00 2021
-
-@author: Admin
-"""
-
-#encoding=utf-8
 
 from threading import Thread
 from queue import Queue
@@ -71,15 +64,19 @@ def download_img(url,path):
 
 if __name__=='__main__':
     url_list=[]
-    for i in range(1,10):
+    for i in range(1,5):
         url=f'https://fabiaoqing.com/biaoqing/lists/page/{i}.html'
         url_list.append(url)
     path='./表情包3/'
-    #线程池
-    with ThreadPoolExecutor() as p:   #类似打开文件,可省去.shutdown()
+    #线程池 max_workers指定线程的数量
+    start=time.time()
+    with ThreadPoolExecutor(max_workers=10) as p:   #类似打开文件,可省去.shutdown()
         future_tasks = [p.submit(download_img, item,path) for item in url_list]
     
     [obj.result() for obj in future_tasks]
+    end=time.time()
+    spendtime=end-start
+    print('此次运行共耗时%s 秒'%spendtime)
 
 #    队列
 #    queue=Queue()
