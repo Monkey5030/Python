@@ -8,7 +8,13 @@ import sys
 #utf-8中文乱码
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='gb18030') 
 ```
-
+网页解析乱码终极解决方案
+```
+import requests
+req= requests.get("http://www.ccit.js.cn")
+req_text=req.text.encode("latin1").decode("GBK")
+print(req_text)
+```
 # [python字符串反转](https://www.cnblogs.com/taceywong/p/8045127.html)
 1. 使用字符串切片  
 result = s[::-1]
