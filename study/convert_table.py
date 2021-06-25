@@ -10,17 +10,12 @@ import aiomysql
 
 async def execute(begin,end):
     # 网络IO操作：连接MySQL
-    conn = await aiomysql.connect(host='111.186.58.185', port=18086, user='root', password='Boguan@365', db='school_talent_info', )
+    conn = await aiomysql.connect(host='xxxxxxx', port=xx, user='xx', password='xx', db='xx', )
     # 网络IO操作：创建CURSOR
     cur = await conn.cursor()
     # 网络IO操作：执行SQL
     try:
-        await cur.execute(f'''insert ignore into talent_info_2 (name,school,school_url,academy,academy_url,list_url,institute,department,professional,header_img,email,phone,research_direction,subject,work_experience,representative_work,
-                          award,project,teach,supervise_stutent,social_appointments,flag,mainurl,content,unit) 
-                          SELECT name,school,school_url,academy,academy_url,list_url,institute,department,professional,header_img,email,phone,
-                          research_direction,subject,work_experience,
-                          representative_work,award,project,teach,supervise_stutent,social_appointments,flag,mainurl,content,unit 
-                          FROM talent_info_1 where id  between {begin} and {end}''')
+        await cur.execute(f'''sql''')
         # 网络IO操作：获取SQL结果
         await  conn.commit()
         result = await cur.fetchall()
