@@ -2,11 +2,12 @@
 # 作者：Admin
 # 日期：2021/6/25 15:51
 # 工具：PyCharm
-import traceback
-import logging
-import aiomysql
 import asyncio
+import logging
 import time
+import traceback
+
+import aiomysql
 
 logobj = logging.getLogger('mysql')
 
@@ -59,15 +60,12 @@ class Pmysql():
             await self.pool.release(conn)
 
     async def execute(self, query, param=None):
-        """
-        增删改 操作
-        :param query: sql语句
-        :param param: 参数
-        :return:
-        """
         conn, cur = await self.getCurosr()
         try:
-            await cur.execute(query, param)
+            if param is not None:
+                await cur.executemany(query, param)
+            else:
+                await cur.execute(query, param)
             if cur.rowcount == 0:
                 return False
             else:
@@ -110,14 +108,11 @@ async def test_update():
 
 
 async def main():  # 调用方
-
-    tasks = [test_select()]  # 把所有任务添加到task中
+    tasks = [test_update(), test_select()]  # 把所有任务添加到task中
     done, pending = await asyncio.wait(tasks)  # 子生成器
     for r in done:  # done和pending都是一个任务，所以返回结果需要逐个调用result()
         # print('协程无序返回值：'+r.result())
         print(r.result())
-
-
 
 
 if __name__ == '__main__':
@@ -127,4 +122,6 @@ if __name__ == '__main__':
         loop.run_until_complete(main())  # 完成事件循环，直到最后一个任务结束
     finally:
         loop.close()  # 结束事件循环
+    # 或者执行
+    # asyncio.run(main())
     print('所有IO任务总耗时%.5f秒' % float(time.time() - start))
