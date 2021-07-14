@@ -20,3 +20,4 @@
 [10 minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)  
 [A Crash Course in Python for Scientists](https://nbviewer.jupyter.org/gist/anonymous/5924718)  
 [trending](https://github.com/trending/python)  
+[pythontips](https://book.pythontips.com/en/latest/)  
