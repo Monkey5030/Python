@@ -22,3 +22,4 @@
 [trending](https://github.com/trending/python)  
 [pythontips](https://book.pythontips.com/en/latest/)  
 [the-flask-mega-tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)  
+[Python_for_Everybody](https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_Languages/Book%3A_Python_for_Everybody_(Severance))  
