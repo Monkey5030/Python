@@ -21,3 +21,4 @@
 [A Crash Course in Python for Scientists](https://nbviewer.jupyter.org/gist/anonymous/5924718)  
 [trending](https://github.com/trending/python)  
 [pythontips](https://book.pythontips.com/en/latest/)  
+[the-flask-mega-tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)  
