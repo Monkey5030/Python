@@ -94,7 +94,7 @@ class mysql_func(object):
             if type(data[0]) != type([]):
                 data = [data]
             self._cursor.executemany(sql, data)
-        data = self.curors.rowcount
+        data = self._cursor.rowcount
         return data
         # 取数据，[dict]类型返回
 
