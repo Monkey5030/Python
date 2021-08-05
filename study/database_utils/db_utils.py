@@ -10,12 +10,13 @@ import json
 import pymysql
 from dbutils.pooled_db import PooledDB
 
+
 class mysql_func(object):
     __pool = None;
 
     def __init__(self, mincached=10, maxcached=20, maxshared=10, maxconnections=200, blocking=True, maxusage=100,
                  setsession=None, reset=True,
-                 host='localhost', user='root', passwd='xxxx', port=3306, db='work', charset='utf8mb4'):
+                 host='localhost', user='root', passwd='popeye12.', port=3306, db='work', charset='utf8mb4'):
         """
         :param mincached:连接池中空闲连接的初始数量
         :param maxcached:连接池中空闲连接的最大数量
@@ -88,13 +89,15 @@ class mysql_func(object):
         # 存数据，int类型返回成功条数
 
     def get_row_number(self, sql, data=None):
+        self.begin()
         if data is None or len(data) == 0:
             self._cursor.execute(sql)
         else:
-            if type(data[0]) != type([]):
-                data = [data]
+            # if type(data[0]) != type([]):
+            #     data = [data]
             self._cursor.executemany(sql, data)
         data = self._cursor.rowcount
+        self.end()
         return data
         # 取数据，[dict]类型返回
 
@@ -108,21 +111,23 @@ class mysql_func(object):
 
     def begin(self):
         """开启事务"""
-        self._conn.autocommit(0)
+        self._conn.commit()
+
 
     def end(self, option='commit'):
         """结束事务"""
         if option == 'commit':
-            self._conn.autocommit()
+            self._conn.commit()
         else:
             self._conn.rollback()
+
 
 class MysqlClient(object):
     __pool = None;
 
     def __init__(self, mincached=10, maxcached=20, maxshared=10, maxconnections=200, blocking=True,
                  maxusage=100, setsession=None, reset=True,
-                 host='127.0.0.1', port=3306, db='work',
+                 host='127.0.0.1', port=3306, db='mysql',
                  user='root', passwd='popeye12.', charset='utf8mb4'):
         """
 
@@ -219,9 +224,10 @@ class MysqlClient(object):
         else:
             self._conn.rollback()
 
+
 if __name__ == "__main__":
     mc = mysql_func(host='127.0.0.1')
-    sql1 = 'SELECT * from cnblog where id&gt;10 and id&lt;20'
+    sql1 = 'SELECT * from cnblog where id>10 and id<20'
     result1 = mc.get_json(sql1)
     # result1 = mc.get_data(sql1)
     print(result1)
@@ -233,6 +239,8 @@ if __name__ == "__main__":
     sql2 = 'SELECT * FROM cnblog  WHERE  id IN (%s,%s,%s)'
     param = (2, 3, 4)
     print(json.dumps(mc.select_many(sql2, param)[1], ensure_ascii=False))
+
+
 ```
 # 从别的py引用此代码为
 ```
