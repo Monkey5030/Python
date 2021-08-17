@@ -30,9 +30,9 @@ class mysql_func(object):
             True to always issue a rollback for safety's sake)
         :param host:数据库ip地址
         :param port:数据库端口
-        :param db:库名
+        :param database:库名
         :param user:用户名
-        :param passwd:密码
+        :param password:密码
         :param charset:字符编码
         """
         if not self.__pool:
@@ -143,9 +143,9 @@ class MysqlClient(object):
             True to always issue a rollback for safety's sake)
         :param host:数据库ip地址
         :param port:数据库端口
-        :param db:库名
+        :param database:库名
         :param user:用户名
-        :param passwd:密码
+        :param password:密码
         :param charset:字符编码
         """
 
