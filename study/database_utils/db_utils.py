@@ -1,5 +1,4 @@
 dbutils_func.py
-```
 # encoding=utf-8
 # 作者：Admin
 # 日期：2021/7/6 10:06
@@ -16,7 +15,7 @@ class mysql_func(object):
 
     def __init__(self, mincached=10, maxcached=20, maxshared=10, maxconnections=200, blocking=True, maxusage=100,
                  setsession=None, reset=True,
-                 host='localhost', user='root', passwd='popeye12.', port=3306, db='work', charset='utf8mb4'):
+                 host='localhost', user='root', password='popeye12.', port=3306, database='work', charset='utf8mb4'):
         """
         :param mincached:连接池中空闲连接的初始数量
         :param maxcached:连接池中空闲连接的最大数量
@@ -41,8 +40,8 @@ class mysql_func(object):
                                              mincached, maxcached,
                                              maxshared, maxconnections, blocking,
                                              maxusage, setsession, reset,
-                                             host=host, port=port, db=db,
-                                             user=user, passwd=passwd,
+                                             host=host, port=port, database=database,
+                                             user=user, password=password,
                                              charset=charset,
                                              # cursorclass=pymysql.cursors.DictCursor
                                              )
@@ -127,8 +126,8 @@ class MysqlClient(object):
 
     def __init__(self, mincached=10, maxcached=20, maxshared=10, maxconnections=200, blocking=True,
                  maxusage=100, setsession=None, reset=True,
-                 host='127.0.0.1', port=3306, db='mysql',
-                 user='root', passwd='popeye12.', charset='utf8mb4'):
+                 host='127.0.0.1', port=3306, database='mysql',
+                 user='root', password='popeye12.', charset='utf8mb4'):
         """
 
         :param mincached:连接池中空闲连接的初始数量
@@ -155,8 +154,8 @@ class MysqlClient(object):
                                              mincached, maxcached,
                                              maxshared, maxconnections, blocking,
                                              maxusage, setsession, reset,
-                                             host=host, port=port, db=db,
-                                             user=user, passwd=passwd,
+                                             host=host, port=port, database=database,
+                                             user=user, password=password,
                                              charset=charset,
                                              cursorclass=pymysql.cursors.DictCursor
                                              )
@@ -232,14 +231,13 @@ if __name__ == "__main__":
     # result1 = mc.get_data(sql1)
     print(result1)
 
-    mc = MysqlClient(host='127.0.0.1',user='lgy')
-    sql1 = 'SELECT * from cnblog where id=1000'
-    result1 = mc.select_one(sql1)
-    print(json.dumps(result1[1], ensure_ascii=False))
-    sql2 = 'SELECT * FROM cnblog  WHERE  id IN (%s,%s,%s)'
-    param = (2, 3, 4)
-    print(json.dumps(mc.select_many(sql2, param)[1], ensure_ascii=False))
-
+    # mc = MysqlClient(host='127.0.0.1',user='root',database='work')
+    # sql1 = 'SELECT * from cnblog where id=1000'
+    # result1 = mc.select_one(sql1)
+    # print(json.dumps(result1[1], ensure_ascii=False))
+    # sql2 = 'SELECT * FROM cnblog  WHERE  id IN (%s,%s,%s)'
+    # param = (2, 3, 4)
+    # print(json.dumps(mc.select_many(sql2, param)[1], ensure_ascii=False))
 
 ```
 # 从别的py引用此代码为
