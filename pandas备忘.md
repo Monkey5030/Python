@@ -170,6 +170,13 @@ ds.rolling(x).max() #依次计算相邻x个元素的最大值
 # 数据清理  
 ```
 df.columns = ['a','b','c'] # 重命名列名
+update_name={'名称':'刊名',
+         '5 年影响因子':'5年影响因子',
+         '2019年期刊影响因子':'2019期刊影响因子',
+         '期刊影响因子':'2019期刊影响因子',
+        '分区':'JCR分区'
+        }
+dt.rename(columns =update_name , inplace = True)
 df.columns = df.columns.str.replace(' ', '_') # 列名空格换下划线
 df.loc[df.AAA >= 5, ['BBB', 'CCC']] = 555 # 替换数据
 df['pf'] = df.site_id.map({2: '小程序', 7:'M 站'}) # 将枚举换成名称
