@@ -37,6 +37,8 @@ pd.read_csv('file.csv', name=['列名','列名2'])
 pd.read_table(filename, header=0)
 # Excel 导入，指定 sheet 和表头
 pd.read_excel('file.xlsx', sheet_name=' 表1', header=0)
+# Excel 导入，指定列 行
+pd.read_excel('file.xlsx', usecols=[1,2],nrows=10,skiprows=[0,1,5,6])
 # 从 SQL 表/库导入数据
 pd.read_sql(query, connection_object)
 # 从 JSON 格式的字符串导入数据
