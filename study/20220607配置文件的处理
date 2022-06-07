@@ -1,0 +1,27 @@
+import configparser
+import os
+from collections import Iterable
+config = configparser.ConfigParser()
+path = os.path.join(os.path.split(os.path.realpath(__file__))[0], 'people.ini'
+                    )
+config.read(path, encoding="utf-8")
+sections = config.sections() 
+config.set('个人信息', "comma", "100")
+config.write(open(path, "r+", encoding="utf-8"))  # r+模式
+
+# *** 添加section *** #
+config['txtC'] = {}
+config['txtC']['index0'] = "wegf"
+config.write(open(path, "r+", encoding="utf-8"))
+from collections import defaultdict
+config_dict=defaultdict(list)
+for item in sections:
+    for iter_item in config.items(item):
+    	config_dict[item].append(dict([iter_item])) 
+for k,v in config_dict.items():
+	if isinstance(v,Iterable):
+		for item in v:
+			print(1,k,item)
+	else:
+		print(2,k,v)
+print(dict(config))
